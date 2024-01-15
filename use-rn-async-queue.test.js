@@ -18,7 +18,7 @@ describe('useConcurrentQueue', () => {
         },
       };
       const { result, waitForNextUpdate } = renderHook(() =>
-        useAsyncQueue({ concurrency: 1, inflight, done })
+        useAsyncQueue({ concurrency: 1, inflight, done }),
       );
 
       expect(done).not.toHaveBeenCalled();
@@ -55,7 +55,7 @@ describe('useConcurrentQueue', () => {
         };
       };
       const { result, waitForNextUpdate } = renderHook(() =>
-        useAsyncQueue({ concurrency: 1, done })
+        useAsyncQueue({ concurrency: 1, done }),
       );
 
       expect(done).not.toHaveBeenCalled();
@@ -89,7 +89,7 @@ describe('useConcurrentQueue', () => {
       const { result, rerender, waitForNextUpdate } = renderHook(
         ({ concurrency, done, drain }) =>
           useAsyncQueue({ concurrency, done, drain }),
-        { initialProps: { concurrency: 1, done, drain } }
+        { initialProps: { concurrency: 1, done, drain } },
       );
 
       // TODO: separate drain testing into its own test case.
@@ -122,13 +122,13 @@ describe('useConcurrentQueue', () => {
           id,
           task: () => {
             return new Promise((resolve) =>
-              setTimeout(() => resolve(`${id} is done`), 1000 * (id + 1))
+              setTimeout(() => resolve(`${id} is done`), 1000 * (id + 1)),
             );
           },
         };
       };
       const { result, waitForNextUpdate } = renderHook(() =>
-        useAsyncQueue({ concurrency: 1, done })
+        useAsyncQueue({ concurrency: 1, done }),
       );
 
       expect(done).not.toHaveBeenCalled();
@@ -160,13 +160,13 @@ describe('useConcurrentQueue', () => {
             return new Promise((resolve) =>
               setTimeout(() => {
                 resolve(`${id} is done`);
-              }, 1000)
+              }, 1000),
             );
           },
         };
       };
       const { result, waitForNextUpdate } = renderHook(() =>
-        useAsyncQueue({ concurrency: 1, inflight, done, drain })
+        useAsyncQueue({ concurrency: 1, inflight, done, drain }),
       );
 
       expect(done).not.toHaveBeenCalled();
@@ -215,13 +215,13 @@ describe('useConcurrentQueue', () => {
             return new Promise((resolve) =>
               setTimeout(() => {
                 resolve(`${id} is done`);
-              }, 1000)
+              }, 1000),
             );
           },
         };
       };
       const { result, waitForNextUpdate } = renderHook(() =>
-        useAsyncQueue({ concurrency: 2, inflight, done })
+        useAsyncQueue({ concurrency: 2, inflight, done }),
       );
 
       expect(done).not.toHaveBeenCalled();
