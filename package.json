@@ -1,6 +1,6 @@
 {
   "name": "use-rn-async-queue",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "source": "use-rn-async-queue.ts",
   "main": "dist/use-rn-async-queue.js",
   "module": "dist/use-rn-async-queue.module.js",
