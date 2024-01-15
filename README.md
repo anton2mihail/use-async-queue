@@ -1,6 +1,6 @@
-# use-async-queue
+# use-rn-async-queue
 
-A React Hook implementing a queue for sync or async tasks, with optional
+A React Hook implementing a queue for sync or async tasks for React Native, with optional
 concurrency limit.
 
 ## Usage
