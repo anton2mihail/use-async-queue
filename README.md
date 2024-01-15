@@ -3,9 +3,6 @@
 A React Hook implementing a queue for sync or async tasks, with optional
 concurrency limit.
 
-Inspired by
-[@caolan/async.queue](http://caolan.github.io/async/docs.html#queue).
-
 ## Usage
 
 - Create a queue with some concurrency. Default concurrency is 8. Set to
@@ -17,17 +14,17 @@ Inspired by
 - **Demo: https://codesandbox.io/s/use-async-queue-demo-53y89**
 
 ```javascript
-import useAsyncQueue from 'use-async-queue';
+import useAsyncQueue from 'use-rn-async-queue';
 
 // Example shows a task fetching a url, but a task can be any operation.
 const url = 'some url';
 
-const inflight = task => {
+const inflight = (task) => {
   console.log(`starting ${task.id}`);
   console.dir(stats); // { numPending: 0, numInFlight: 1, numDone: 0}
 };
 
-const done = async task => {
+const done = async (task) => {
   const result = await task.result;
   console.log(`finished ${task.id}: ${result}`);
   console.dir(stats); // { numPending: 0, numInFlight: 0, numDone: 1}
@@ -38,7 +35,7 @@ const drain = () => {
   console.dir(stats); // { numPending: 0, numInFlight: 0, numDone: 1}
 };
 
-const { add, stats } = useAsyncQueue({
+const { add, stats } = useRnAsyncQueue({
   concurrency: 1,
   inflight,
   done,
@@ -48,7 +45,7 @@ const { add, stats } = useAsyncQueue({
 add({
   id: url,
   task: () => {
-    return fetch(url).then(res => res.text());
+    return fetch(url).then((res) => res.text());
   },
 });
 console.dir(stats); // { numPending: 1, numInFlight: 0, numDone: 0}
@@ -64,3 +61,5 @@ console.dir(stats); // { numPending: 1, numInFlight: 0, numDone: 0}
 - [ ] timeouts
 - [ ] start, stop methods
 - [ ] use events instead of/in addition to callbacks
+
+## More to be added

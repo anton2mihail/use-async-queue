@@ -1,6 +1,6 @@
 demo.js
 local*
 *.el
-use-async-queue.ts
+use-rn-async-queue.ts
 .rts*
 TAGS

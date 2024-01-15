@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react-hooks';
-import useAsyncQueue from './dist/use-async-queue';
+import useAsyncQueue from './dist/use-rn-async-queue';
 
 describe('useConcurrentQueue', () => {
   describe('real timers', () => {

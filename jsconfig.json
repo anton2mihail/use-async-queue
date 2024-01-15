@@ -5,6 +5,8 @@
     "noEmit": true,
     "allowJs": true,
     "checkJs": false,
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
     "lib": [
       "dom",
       "es2017"

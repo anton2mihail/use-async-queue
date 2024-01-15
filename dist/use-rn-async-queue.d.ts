@@ -19,5 +19,5 @@ interface QueueOpts {
     drain?: () => void;
     inflight?: (task: QueueTaskResult) => void;
 }
-declare function useAsyncQueue(opts: QueueOpts): Queue;
-export default useAsyncQueue;
+declare function useRnAsyncQueue(opts: QueueOpts): Queue;
+export default useRnAsyncQueue;

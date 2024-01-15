@@ -26,7 +26,7 @@ interface QueueOpts {
   inflight?: (task: QueueTaskResult) => void;
 }
 
-function useAsyncQueue(opts: QueueOpts): Queue {
+function useRnAsyncQueue(opts: QueueOpts): Queue {
   const { done, drain, inflight } = opts;
   let { concurrency } = opts;
   if (concurrency < 1) concurrency = Infinity;
@@ -60,7 +60,7 @@ function useAsyncQueue(opts: QueueOpts): Queue {
       drained.current = false;
       const task = pending.current.shift();
       inFlight.current.push(task);
-      setStats(stats => {
+      setStats((stats) => {
         return {
           ...stats,
           numPending: stats.numPending - 1,
@@ -72,7 +72,7 @@ function useAsyncQueue(opts: QueueOpts): Queue {
       result
         .then(() => {
           inFlight.current.pop();
-          setStats(stats => {
+          setStats((stats) => {
             return {
               ...stats,
               numInFlight: stats.numInFlight - 1,
@@ -83,7 +83,7 @@ function useAsyncQueue(opts: QueueOpts): Queue {
         })
         .catch(() => {
           inFlight.current.pop();
-          setStats(stats => {
+          setStats((stats) => {
             return {
               ...stats,
               numInFlight: stats.numInFlight - 1,
@@ -97,7 +97,7 @@ function useAsyncQueue(opts: QueueOpts): Queue {
 
   const add = useCallback((task: QueueTaskResult) => {
     pending.current.push(task);
-    setStats(stats => {
+    setStats((stats) => {
       return {
         ...stats,
         numPending: stats.numPending + 1,
@@ -108,4 +108,4 @@ function useAsyncQueue(opts: QueueOpts): Queue {
   return { add, stats };
 }
 
-export default useAsyncQueue;
+export default useRnAsyncQueue;
