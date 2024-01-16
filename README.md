@@ -11,10 +11,9 @@ concurrency limit.
 - Add tasks to it. A task is an object with an `id` (some unique value that
   makes sense for your use case -- a number, a url, etc.) and a `task` (a
   function that returns a Promise).
-- **Demo: https://codesandbox.io/s/use-async-queue-demo-53y89**
 
 ```javascript
-import useAsyncQueue from 'use-rn-async-queue';
+import useRnAsyncQueue from 'use-rn-async-queue';
 
 // Example shows a task fetching a url, but a task can be any operation.
 const url = 'some url';
