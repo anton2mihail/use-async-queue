@@ -108,4 +108,5 @@ function useRnAsyncQueue(opts: QueueOpts): Queue {
   return { add, stats };
 }
 
-export default useRnAsyncQueue;
+export { useRnAsyncQueue };
+export type { Queue, QueueOpts, QueueStats, QueueTaskResult };
