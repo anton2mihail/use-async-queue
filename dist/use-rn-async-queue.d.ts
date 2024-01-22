@@ -1,23 +1,24 @@
-interface QueueStats {
+type QueueStats = {
     numPending: number;
     numInFlight: number;
     numDone: number;
-}
-interface QueueTaskResult {
+};
+type QueueTaskResult = {
     id: any;
     task(): Promise<any>;
     result?: Promise<any>;
     stats?: QueueStats;
-}
-interface Queue {
+};
+type Queue = {
     add: (task: QueueTaskResult) => void;
     stats: QueueStats;
-}
-interface QueueOpts {
+};
+type QueueOpts = {
     concurrency?: number;
     done?: (result: QueueTaskResult) => void;
     drain?: () => void;
     inflight?: (task: QueueTaskResult) => void;
-}
+};
 declare function useRnAsyncQueue(opts: QueueOpts): Queue;
-export default useRnAsyncQueue;
+export { useRnAsyncQueue };
+export type { Queue, QueueOpts, QueueStats, QueueTaskResult };
