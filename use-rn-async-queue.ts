@@ -26,7 +26,7 @@ type QueueOpts = {
   inflight?: (task: QueueTaskResult) => void;
 }
 
-function useRnAsyncQueue(opts: QueueOpts): Queue {
+const useRnAsyncQueue = (opts: QueueOpts): Queue => {
   const { done, drain, inflight } = opts;
   let { concurrency } = opts;
   if (concurrency < 1) concurrency = Infinity;
