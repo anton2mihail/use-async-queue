@@ -60,5 +60,6 @@ console.dir(stats); // { numPending: 1, numInFlight: 0, numDone: 0}
 - [ ] timeouts
 - [ ] start, stop methods
 - [ ] use events instead of/in addition to callbacks
+- [x] pausing the queue
 
 ## More to be added
