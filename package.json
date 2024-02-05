@@ -4,6 +4,7 @@
   "source": "use-rn-async-queue.ts",
   "main": "dist/use-rn-async-queue.js",
   "module": "dist/use-rn-async-queue.module.js",
+  "exports": "./dist/use-rn-async-queue.module.js",
   "author": "Anton Lachmaniucu <antonmihial@gmail.com>",
   "url": "https://github.com/anton2mihail/use-async-queue",
   "homepage": "https://github.com/anton2mihail/use-async-queue",

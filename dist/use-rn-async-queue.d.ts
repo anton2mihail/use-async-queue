@@ -15,7 +15,7 @@ type Queue = {
 };
 type QueueOpts = {
     concurrency?: number;
-    done?: (result: QueueTaskResult) => void;
+    done?: (result: QueueTaskResult) => void | Promise<void>;
     drain?: () => void;
     inflight?: (task: QueueTaskResult) => void;
     isPaused?: boolean;

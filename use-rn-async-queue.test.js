@@ -1,10 +1,10 @@
 import { renderHook, act } from '@testing-library/react-hooks';
-import useAsyncQueue from './dist/use-rn-async-queue.js';
+import { useRnAsyncQueue } from './dist/use-rn-async-queue.module.js';
 
 describe('useConcurrentQueue', () => {
   describe('real timers', () => {
     it('should initialize it', () => {
-      const { result } = renderHook(() => useAsyncQueue({ concurrency: 1 }));
+      const { result } = renderHook(() => useRnAsyncQueue({ concurrency: 1 }));
       expect(typeof result.current.add).toBe('function');
     });
 
@@ -18,7 +18,7 @@ describe('useConcurrentQueue', () => {
         },
       };
       const { result, waitForNextUpdate } = renderHook(() =>
-        useAsyncQueue({ concurrency: 1, inflight, done }),
+        useRnAsyncQueue({ concurrency: 1, inflight, done }),
       );
 
       expect(done).not.toHaveBeenCalled();
@@ -55,7 +55,7 @@ describe('useConcurrentQueue', () => {
         };
       };
       const { result, waitForNextUpdate } = renderHook(() =>
-        useAsyncQueue({ concurrency: 1, done }),
+        useRnAsyncQueue({ concurrency: 1, done }),
       );
 
       expect(done).not.toHaveBeenCalled();
@@ -88,7 +88,7 @@ describe('useConcurrentQueue', () => {
       };
       const { result, rerender, waitForNextUpdate } = renderHook(
         ({ concurrency, done, drain }) =>
-          useAsyncQueue({ concurrency, done, drain }),
+          useRnAsyncQueue({ concurrency, done, drain }),
         { initialProps: { concurrency: 1, done, drain } },
       );
 
@@ -128,7 +128,7 @@ describe('useConcurrentQueue', () => {
         };
       };
       const { result, waitForNextUpdate } = renderHook(() =>
-        useAsyncQueue({ concurrency: 1, done }),
+        useRnAsyncQueue({ concurrency: 1, done }),
       );
 
       expect(done).not.toHaveBeenCalled();
@@ -166,7 +166,7 @@ describe('useConcurrentQueue', () => {
         };
       };
       const { result, waitForNextUpdate } = renderHook(() =>
-        useAsyncQueue({ concurrency: 1, inflight, done, drain }),
+        useRnAsyncQueue({ concurrency: 1, inflight, done, drain }),
       );
 
       expect(done).not.toHaveBeenCalled();
@@ -221,7 +221,7 @@ describe('useConcurrentQueue', () => {
         };
       };
       const { result, waitForNextUpdate } = renderHook(() =>
-        useAsyncQueue({ concurrency: 2, inflight, done }),
+        useRnAsyncQueue({ concurrency: 2, inflight, done }),
       );
 
       expect(done).not.toHaveBeenCalled();
