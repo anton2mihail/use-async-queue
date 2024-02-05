@@ -24,10 +24,11 @@ type QueueOpts = {
   done?: (result: QueueTaskResult) => void;
   drain?: () => void;
   inflight?: (task: QueueTaskResult) => void;
+  isPaused?: boolean;
 }
 
 const useRnAsyncQueue = (opts: QueueOpts): Queue => {
-  const { done, drain, inflight } = opts;
+  const { done, drain, inflight, isPaused } = opts;
   let { concurrency } = opts;
   if (concurrency < 1) concurrency = Infinity;
 
@@ -42,6 +43,7 @@ const useRnAsyncQueue = (opts: QueueOpts): Queue => {
   const pending = useRef([] as QueueTaskResult[]);
 
   useEffect(() => {
+    if(isPaused) return;
     if (
       stats.numDone > 0 &&
       drain &&

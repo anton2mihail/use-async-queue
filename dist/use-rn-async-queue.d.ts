@@ -18,6 +18,7 @@ type QueueOpts = {
     done?: (result: QueueTaskResult) => void;
     drain?: () => void;
     inflight?: (task: QueueTaskResult) => void;
+    isPaused?: boolean;
 };
 declare const useRnAsyncQueue: (opts: QueueOpts) => Queue;
 export { useRnAsyncQueue };
