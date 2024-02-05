@@ -1,16 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es2017",
-    "allowSyntheticDefaultImports": true,
+    "target": "ESNext",
+    "allowSyntheticDefaultImports": false,
     "noEmit": true,
     "allowJs": true,
     "checkJs": false,
     "module": "NodeNext",
     "moduleResolution": "nodenext",
     "lib": [
-      "dom",
-      "es2017"
-    ]
+      "ESNext"
+    ],
   },
   "exclude": [
     "local_notes",
