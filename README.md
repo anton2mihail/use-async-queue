@@ -13,7 +13,7 @@ concurrency limit.
   function that returns a Promise).
 
 ```javascript
-import useRnAsyncQueue from 'use-rn-async-queue';
+import { QueueTaskResult, useRnAsyncQueue } from 'use-rn-async-queue';
 
 // Example shows a task fetching a url, but a task can be any operation.
 const url = 'some url';
@@ -23,7 +23,7 @@ const inflight = (task) => {
   console.dir(stats); // { numPending: 0, numInFlight: 1, numDone: 0}
 };
 
-const done = async (task) => {
+const done = async (task: QueueTaskResult) => {
   const result = await task.result;
   console.log(`finished ${task.id}: ${result}`);
   console.dir(stats); // { numPending: 0, numInFlight: 0, numDone: 1}
