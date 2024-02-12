@@ -2,9 +2,9 @@
   "name": "use-rn-async-queue",
   "version": "0.3.0",
   "source": "use-rn-async-queue.ts",
-  "main": "dist/use-rn-async-queue.umd.js",
-  "module": "dist/use-rn-async-queue.module.js",
-  "exports": "./dist/use-rn-async-queue.modern.js",
+  "exports": {
+    ".": "./dist/use-rn-async-queue.modern.js"
+  },
   "author": "Anton Lachmaniucu <antonmihial@gmail.com>",
   "url": "https://github.com/anton2mihail/use-async-queue",
   "homepage": "https://github.com/anton2mihail/use-async-queue",
